@@ -1,16 +1,18 @@
 - init:
-    run: rm -f assignment
+    run: rm -f base
     blocker: true
 
 - build:
-    run: g++ main.cpp -o assignment  # timeout: 8
+    run: g++ case1.cpp -o base # timeout: 8
     blocker: true
 
-- case1_main:
+- Border Error:
     run: ./base
     points: 10
     script:
-        - expect: "[ \r\n]*a [[] b[ \r\n]*"                                     # timeout: 8
+        - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]10,7[]] chars.[ \r\n]*"         # timeout: 8
+        - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]8[]] Operators.[ \r\n]*"         # timeout: 8
+        - expect: "[ \r\n]*ARITHMETIC_OPERATOR[[][+][]], CENTER_LOCATION[[]4,2[]], SIZE[[]1[]].[ \r\n]*"         # timeout: 8
         - expect: _EOF_                                                                        # timeout: 8
     return: 0
 

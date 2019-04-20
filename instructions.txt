@@ -21,3 +21,14 @@
         
         CONFLICT ERROR MOVE
         - expect: "[ \r\n]*CONFLICT ERROR: / can not be moved from [(]5,4[)] to [(]2,4[)].[ \r\n]*"         # timeout: 8
+
+
+        ARITHMETIC OPERATOR LISTING
+        - expect: "[ \r\n]*ARITHMETIC_OPERATOR[[]x[]], CENTER_LOCATION[[]4,2[]], SIZE[[]1[]].[ \r\n]*"         # timeout: 8
+
+
+        Destructor:
+        - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[(]rows,cols[)] chars.[ \r\n]*"         # timeout: 8
+        - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[(]num_operators[)] Operators.[ \r\n]*"         # timeout: 8
+
+
