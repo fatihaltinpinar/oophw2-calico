@@ -1,0 +1,23 @@
+        KOYMALAR
+        - expect: "[ \r\n]*SUCCESS: Operator [+] with size 1 is placed on [(]2,2[)].[ \r\n]*"  # timeout: 8
+        - expect: "[ \r\n]*SUCCESS: Operator x with size 2 is placed on [(]5,3[)].[ \r\n]*"    # timeout: 8
+        - expect: "[ \r\n]*SUCCESS: Operator / with size 2 is placed on [(]4,3[)].[ \r\n]*"    # timeout: 8
+        - expect: "[ \r\n]*SUCCESS: Operator - with size 2 is placed on [(]4,3[)].[ \r\n]*"    # timeout: 8
+
+		MOVE LAR
+        - expect: "[ \r\n]*SUCCESS: [+] moved from [(]7,6[)] to [(]6,6[)].[ \r\n]*"              # timeout: 8
+        - expect: "[ \r\n]*SUCCESS: x moved from [(]7,6[)] to [(]6,6[)].[ \r\n]*"              # timeout: 8
+        - expect: "[ \r\n]*SUCCESS: / moved from [(]7,6[)] to [(]6,6[)].[ \r\n]*"              # timeout: 8
+        - expect: "[ \r\n]*SUCCESS: - moved from [(]7,6[)] to [(]6,6[)].[ \r\n]*"              # timeout: 8
+        
+        BORDER ERROR KOYMA
+        - expect: "[ \r\n]*BORDER ERROR: Operator / with size 9 can not be placed on [(]2,1[)].[ \r\n]*"    # timeout: 8
+        
+        CONFLICT ERROR KOYMA
+        - expect: "[ \r\n]*CONFLICT ERROR: Operator - with size 3 can not be placed on [(]5,4[)].[ \r\n]*"  # timeout: 8
+
+		BORDER ERROR MOVE
+        - expect: "[ \r\n]*BORDER ERROR: - can not be moved from [(]10,2[)] to [(]10,9[)].[ \r\n]*"         # timeout: 8
+        
+        CONFLICT ERROR MOVE
+        - expect: "[ \r\n]*CONFLICT ERROR: / can not be moved from [(]5,4[)] to [(]2,4[)].[ \r\n]*"         # timeout: 8
