@@ -43,6 +43,34 @@ int main(){
     grid.move_operator(8,3,'L', 3);
     grid.move_operator(8,8,'D', 2);
 
+    grid.move_operator(3, 3, 'R', 1);
+    grid.move_operator(3, 4, 'R', 3);
+    grid.move_operator(3, 4, 'R', 6);
 
+/* OUTPUT SHOULD BE LIKE THIS:
+
+SUCCESS: Operator + with size 1 is placed on (3,3).
+SUCCESS: Operator - with size 1 is placed on (3,8).
+SUCCESS: Operator x with size 1 is placed on (8,3).
+SUCCESS: Operator / with size 1 is placed on (8,8).
+BORDER ERROR: Operator + with size 1 can not be placed on (10,10).
+BORDER ERROR: Operator - with size 1 can not be placed on (10,10).
+BORDER ERROR: Operator x with size 1 can not be placed on (10,10).
+BORDER ERROR: Operator / with size 1 can not be placed on (10,10).
+CONFLICT ERROR: Operator + with size 1 can not be placed on (3,3).
+CONFLICT ERROR: Operator - with size 1 can not be placed on (3,8).
+CONFLICT ERROR: Operator x with size 1 can not be placed on (8,3).
+CONFLICT ERROR: Operator / with size 1 can not be placed on (8,8).
+BORDER ERROR: + can not be moved from (3,3) to (0,3).
+BORDER ERROR: - can not be moved from (3,8) to (3,10).
+BORDER ERROR: x can not be moved from (8,3) to (8,0).
+BORDER ERROR: / can not be moved from (8,8) to (10,8).
+SUCCESS: + moved from (3,3) to (3,4).
+CONFLICT ERROR: + can not be moved from (3,4) to (3,7).
+BORDER ERROR: + can not be moved from (3,4) to (3,10).
+CONFLICT ERROR: + can not be moved from (3,4) to (3,10).
+DESTRUCTOR: GIVE BACK[10,10] chars.
+DESTRUCTOR: GIVE BACK[4] Operators.
+  */
     return 0;
 }
