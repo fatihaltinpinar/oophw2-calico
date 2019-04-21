@@ -41,7 +41,7 @@
 
 - Place Output Check:
     run: ./place_output_check
-    points: 10
+    points: 6
     scripts:
         - expect: "[ \r\n]*SUCCESS: Operator [+] with size 1 is placed on [(]3,3[)].[ \r\n]*"  # timeout: 8
         - expect: "[ \r\n]*SUCCESS: Operator - with size 1 is placed on [(]3,8[)].[ \r\n]*"    # timeout: 8
@@ -68,7 +68,7 @@
 
 - Move Output Check:
     run: ./move_output_check
-    points: 10
+    points: 6
     scripts:
         - expect: "[ \r\n]*SUCCESS: Operator [+] with size 1 is placed on [(]3,3[)].[ \r\n]*"  # timeout: 8
         - expect: "[ \r\n]*SUCCESS: Operator - with size 1 is placed on [(]3,8[)].[ \r\n]*"    # timeout: 8
@@ -92,7 +92,7 @@
 
 - Place Check:
     run: ./place_check
-    points: 10
+    points: 6
     script:
         - expect: "[ \r\n]*BORDER ERROR: Operator [+] with size 2 can not be placed on [(]3,-11[)].[ \r\n]*"    # timeout: 8
         - expect: "[ \r\n]*BORDER ERROR: Operator - with size 2 can not be placed on [(]2,33[)].[ \r\n]*"    # timeout: 8
@@ -114,7 +114,7 @@
 
 - Invalid Sign:
     run: ./invalid_sign
-    points: 10
+    points: 6
     script:
         - expect: "[ \r\n]*SIGN parameter is invalid![ \r\n]*"    # timeout: 8
         - expect: "[ \r\n]*SIGN parameter is invalid![ \r\n]*"    # timeout: 8
@@ -128,7 +128,7 @@
 
 - Print Operators:
     run: ./print_operators
-    points: 10
+    points: 7
     script:
         - expect: "[ \r\n]*SUCCESS: Operator - with size 1 is placed on [(]2,2[)].[ \r\n]*"  # timeout: 8
         - expect: "[ \r\n]*SUCCESS: Operator x with size 1 is placed on [(]3,22[)].[ \r\n]*"  # timeout: 8
