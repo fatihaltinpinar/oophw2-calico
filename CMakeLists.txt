@@ -3,4 +3,4 @@ project(calico)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(calico outputcheck.cpp)
+add_executable(calico move_output_check.cpp)
