@@ -6,12 +6,20 @@
     run: rm -f place_check;
     visible: false
 
+- Remove Invalid Sign:
+    run: rm -f invalid_sign;
+    visible: false
+
 - Build Output Check:
     run: g++ -Wall -Werror outputcheck.cpp -o outputcheck  # timeout: 8
     blocker: true
     
 - Build Place Check:
     run: g++ -Wall -Werror place_check.cpp -o place_check  # timeout: 8
+    blocker: true
+
+- Build Invalid Sign:
+    run: g++ -Wall -Werror invalid_sign.cpp -o invalid_sign  # timeout: 8
     blocker: true
 
 
@@ -72,5 +80,19 @@
         - expect: "[ \r\n]*CONFLICT ERROR: Operator [+] with size 2 can not be placed on [(]1,4[)].[ \r\n]*"  # timeout: 8
         - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]4,23[]] chars.[ \r\n]*"         # timeout: 8
         - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]5[]] Operators.[ \r\n]*"         # timeout: 8
+        - expect: _EOF_                                                                        # timeout: 8
+    return: 0
+
+- Invalid Sign:
+    run: ./invalid_sign
+    points: 10
+    script:
+        - expect: "[ \r\n]*SIGN parameter is invalid![ \r\n]*"    # timeout: 8
+        - expect: "[ \r\n]*SIGN parameter is invalid![ \r\n]*"    # timeout: 8
+        - expect: "[ \r\n]*SIGN parameter is invalid![ \r\n]*"    # timeout: 8
+        - expect: "[ \r\n]*SIGN parameter is invalid![ \r\n]*"    # timeout: 8
+        - expect: "[ \r\n]*SIGN parameter is invalid![ \r\n]*"    # timeout: 8
+        - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]4,23[]] chars.[ \r\n]*"         # timeout: 8
+        - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]0[]] Operators.[ \r\n]*"         # timeout: 8
         - expect: _EOF_                                                                        # timeout: 8
     return: 0
