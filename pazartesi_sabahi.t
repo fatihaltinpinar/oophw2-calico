@@ -45,9 +45,23 @@
     run: ./place_check
     points: 10
     script:
-        - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]10,7[]] chars.[ \r\n]*"         # timeout: 8
-        - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]8[]] Operators.[ \r\n]*"         # timeout: 8
-        - expect: "[ \r\n]*ARITHMETIC_OPERATOR[[][+][]], CENTER_LOCATION[[]4,2[]], SIZE[[]1[]].[ \r\n]*"         # timeout: 8
+        - expect: "[ \r\n]*BORDER ERROR: Operator [+] with size 2 can not be placed on [(]3,-11[)].[ \r\n]*"    # timeout: 8
+        - expect: "[ \r\n]*BORDER ERROR: Operator - with size 2 can not be placed on [(]2,33[)].[ \r\n]*"    # timeout: 8
+        - expect: "[ \r\n]*BORDER ERROR: Operator / with size 2 can not be placed on [(]-12,10[)].[ \r\n]*"    # timeout: 8
+        - expect: "[ \r\n]*BORDER ERROR: Operator x with size 2 can not be placed on [(]12,9[)].[ \r\n]*"    # timeout: 8
+        - expect: "[ \r\n]*SUCCESS: Operator [+] with size 1 is placed on [(]2,2[)].[ \r\n]*"  # timeout: 8
+        - expect: "[ \r\n]*SUCCESS: Operator x with size 1 is placed on [(]3,22[)].[ \r\n]*"  # timeout: 8
+        - expect: "[ \r\n]*SUCCESS: Operator - with size 10 is placed on [(]1,13[)].[ \r\n]*"  # timeout: 8
+        - expect: "[ \r\n]*SUCCESS: Operator - with size 9 is placed on [(]4,10[)].[ \r\n]*"  # timeout: 8
+        - expect: "[ \r\n]*SUCCESS: Operator - with size 9 is placed on [(]3,12[)].[ \r\n]*"  # timeout: 8
+        - expect: "[ \r\n]*CONFLICT ERROR: Operator [+] with size 1 can not be placed on [(]2,14[)].[ \r\n]*"  # timeout: 8
+        - expect: "[ \r\n]*CONFLICT ERROR: Operator - with size 2 can not be placed on [(]1,4[)].[ \r\n]*"  # timeout: 8
+        - expect: "[ \r\n]*BORDER ERROR: Operator [+] with size 2 can not be placed on [(]1,4[)].[ \r\n]*"  # timeout: 8
+        - expect: "[ \r\n]*CONFLICT ERROR: Operator [+] with size 2 can not be placed on [(]1,4[)].[ \r\n]*"  # timeout: 8
+        
+        
+        - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]4,23[]] chars.[ \r\n]*"         # timeout: 8
+        - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]5[]] Operators.[ \r\n]*"         # timeout: 8
         - expect: _EOF_                                                                        # timeout: 8
     return: 0
 
