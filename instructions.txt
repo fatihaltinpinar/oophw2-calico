@@ -36,7 +36,6 @@
         - expect: "[ \r\n]*BORDER ERROR: - can not be moved from [(]3,8[)] to [(]10,8[)].[ \r\n]*"         # timeout: 8
         - expect: "[ \r\n]*BORDER ERROR: x can not be moved from [(]8,3[)] to [(]10,10[)].[ \r\n]*"         # timeout: 8
         - expect: "[ \r\n]*BORDER ERROR: / can not be moved from [(]8,8[)] to [(]10,10[)].[ \r\n]*"         # timeout: 8
-
         - expect: "[ \r\n]*CONFLICT ERROR: [+] can not be moved from [(]3,3[)] to [(]3,8[)].[ \r\n]*"         # timeout: 8
         - expect: "[ \r\n]*CONFLICT ERROR: - can not be moved from [(]3,8[)] to [(]8,3[)].[ \r\n]*"         # timeout: 8
         - expect: "[ \r\n]*CONFLICT ERROR: x can not be moved from [(]8,3[)] to [(]8,8[)].[ \r\n]*"         # timeout: 8
