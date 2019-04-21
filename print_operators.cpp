@@ -1,5 +1,9 @@
 #include "assignment2.cpp"
 
+#ifndef MAX_OPERATOR_SIZE
+#define MAX_OPERATOR_SIZE 30
+#endif
+
 int main() {
 	OperatorGrid a(4,23);
 	

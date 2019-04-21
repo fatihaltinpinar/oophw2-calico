@@ -3,11 +3,11 @@
 //
 
 
-#include <iostream>
-#define MAX_OPERATOR_SIZE 20
-
 #include "assignment2.cpp"
 
+#ifndef MAX_OPERATOR_SIZE
+#define MAX_OPERATOR_SIZE 30
+#endif
 
 
 int main() {
@@ -42,7 +42,24 @@ int main() {
     grid.place_operator(&conflict_n_border);
 
 
-
+/*
+SUCCESS: Operator + with size 1 is placed on (3,3).
+SUCCESS: Operator - with size 1 is placed on (3,8).
+SUCCESS: Operator x with size 1 is placed on (8,3).
+SUCCESS: Operator / with size 1 is placed on (8,8).
+BORDER ERROR: Operator + with size 1 can not be placed on (10,10).
+BORDER ERROR: Operator - with size 1 can not be placed on (10,10).
+BORDER ERROR: Operator x with size 1 can not be placed on (10,10).
+BORDER ERROR: Operator / with size 1 can not be placed on (10,10).
+CONFLICT ERROR: Operator + with size 1 can not be placed on (3,3).
+CONFLICT ERROR: Operator - with size 1 can not be placed on (3,8).
+CONFLICT ERROR: Operator x with size 1 can not be placed on (8,3).
+CONFLICT ERROR: Operator / with size 1 can not be placed on (8,8).
+BORDER ERROR: Operator + with size 1 can not be placed on (3,10).
+CONFLICT ERROR: Operator + with size 1 can not be placed on (3,10).
+DESTRUCTOR: GIVE BACK[10,10] chars.
+DESTRUCTOR: GIVE BACK[4] Operators.
+ */
 
     return 0;
 }
