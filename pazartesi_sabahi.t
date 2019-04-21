@@ -1,10 +1,41 @@
 - init:
-    run: rm -f base
+    run: rm -f outputcheck
     blocker: true
 
 - build:
-    run: g++ case1.cpp -o base # timeout: 8
+    run: g++ -Wall -Werror outputcheck.cpp -o outputcheck  # timeout: 8
     blocker: true
+
+
+- Output Check:
+    run: ./outputcheck
+    points: 10
+    script:
+        - expect: "[ \r\n]*SUCCESS: Operator [+] with size 1 is placed on [(]3,3[)].[ \r\n]*"  # timeout: 8
+        - expect: "[ \r\n]*SUCCESS: Operator - with size 1 is placed on [(]3,8[)].[ \r\n]*"    # timeout: 8
+        - expect: "[ \r\n]*SUCCESS: Operator x with size 1 is placed on [(]8,3[)].[ \r\n]*"    # timeout: 8
+        - expect: "[ \r\n]*SUCCESS: Operator / with size 1 is placed on [(]8,8[)].[ \r\n]*"    # timeout: 8
+
+        - expect: "[ \r\n]*BORDER ERROR: Operator [+] with size 1 can not be placed on [(]10,10[)].[ \r\n]*"    # timeout: 8
+        - expect: "[ \r\n]*BORDER ERROR: Operator - with size 1 can not be placed on [(]10,10[)].[ \r\n]*"    # timeout: 8
+        - expect: "[ \r\n]*BORDER ERROR: Operator x with size 1 can not be placed on [(]10,10[)].[ \r\n]*"    # timeout: 8
+        - expect: "[ \r\n]*BORDER ERROR: Operator / with size 1 can not be placed on [(]10,10[)].[ \r\n]*"    # timeout: 8
+
+        - expect: "[ \r\n]*CONFLICT ERROR: Operator [+] with size 1 can not be placed on [(]3,3[)].[ \r\n]*"  # timeout: 8
+        - expect: "[ \r\n]*CONFLICT ERROR: Operator - with size 1 can not be placed on [(]3,8[)].[ \r\n]*"  # timeout: 8
+        - expect: "[ \r\n]*CONFLICT ERROR: Operator x with size 1 can not be placed on [(]8,3[)].[ \r\n]*"  # timeout: 8
+        - expect: "[ \r\n]*CONFLICT ERROR: Operator / with size 1 can not be placed on [(]8,8[)].[ \r\n]*"  # timeout: 8
+
+
+
+
+        - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]10,10[]] chars.[ \r\n]*"         # timeout: 8
+        - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]4[]] Operators.[ \r\n]*"         # timeout: 8
+
+
+    return: 0
+
+
 
 - Border Error:
     run: ./base
