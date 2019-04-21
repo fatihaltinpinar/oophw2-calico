@@ -13,6 +13,10 @@
 - Remove Invalid Sign:
     run: rm -f invalid_sign
     visible: false
+    
+- Remove Print Operators:
+    run: rm -f print_operators;
+    visible: false
 
 - Building Place Output Check:
     run: g++ -Wall -Werror place_output_check.cpp -o place_output_check  # timeout: 8
@@ -28,6 +32,10 @@
 
 - Building Invalid Sign:
     run: g++ -Wall -Werror invalid_sign.cpp -o invalid_sign  # timeout: 8
+    blocker: true
+
+- Build Print Operators:
+    run: g++ -Wall -Werror print_operators.cpp -o print_operators  # timeout: 8
     blocker: true
 
 
@@ -115,5 +123,19 @@
         - expect: "[ \r\n]*SIGN parameter is invalid![ \r\n]*"    # timeout: 8
         - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]4,23[]] chars.[ \r\n]*"         # timeout: 8
         - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]0[]] Operators.[ \r\n]*"         # timeout: 8
+        - expect: _EOF_                                                                        # timeout: 8
+    return: 0
+
+- Print Operators:
+    run: ./print_operators
+    points: 10
+    script:
+        - expect: "[ \r\n]*SUCCESS: Operator - with size 1 is placed on [(]2,2[)].[ \r\n]*"  # timeout: 8
+        - expect: "[ \r\n]*SUCCESS: Operator x with size 1 is placed on [(]3,22[)].[ \r\n]*"  # timeout: 8
+        - expect: "[ \r\n]*ARITHMETIC_OPERATOR[[]-[]], CENTER_LOCATION[[]2,2[]], SIZE[[]1[]][ \r\n]*"  # timeout: 8
+        - expect: "[ \r\n]*ARITHMETIC_OPERATOR[[]x[]], CENTER_LOCATION[[]3,22[]], SIZE[[]1[]][ \r\n]*"  # timeout: 8        
+        
+        - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]4,23[]] chars.[ \r\n]*"         # timeout: 8
+        - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]2[]] Operators.[ \r\n]*"         # timeout: 8
         - expect: _EOF_                                                                        # timeout: 8
     return: 0
