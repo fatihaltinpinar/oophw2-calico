@@ -1,9 +1,13 @@
-- init:
-    run: rm -f outputcheck
+- Init:
+    run: rm -f outputcheck; rm -f place_check
     blocker: true
 
-- build:
+- Build Output Check:
     run: g++ -Wall -Werror outputcheck.cpp -o outputcheck  # timeout: 8
+    blocker: true
+    
+- Build Place Check:
+    run: g++ -Wall -Werror place_check.cpp -o place_check  # timeout: 8
     blocker: true
 
 
@@ -37,8 +41,8 @@
 
 
 
-- Border Error:
-    run: ./base
+- Place Check:
+    run: ./place_check
     points: 10
     script:
         - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]10,7[]] chars.[ \r\n]*"         # timeout: 8
