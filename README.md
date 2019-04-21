@@ -1,4 +1,3 @@
-# Object Oriented Programming
 ## Homework-2 Calico Test Dosyası
 
 ### Kullanım
