@@ -17,13 +17,14 @@ int main() {
     ArithmeticOperator invalid4(3,2,2,'p');
     ArithmeticOperator invalid5(3,2,2,'i');
     
-    //SIGN parameter is invalid!
-    //SIGN parameter is invalid!
-    //SIGN parameter is invalid!
-    //SIGN parameter is invalid!
-    //SIGN parameter is invalid!
-
+   /*
+SIGN parameter is invalid!
+SIGN parameter is invalid!
+SIGN parameter is invalid!
+SIGN parameter is invalid!
+SIGN parameter is invalid!
+DESTRUCTOR: GIVE BACK[4,23] chars.
+DESTRUCTOR: GIVE BACK[0] Operators.
+    */
     return 0;
-    //DESTRUCTOR: GIVE BACK[4,23] chars.
-	//DESTRUCTOR: GIVE BACK[0] Operators.
 }

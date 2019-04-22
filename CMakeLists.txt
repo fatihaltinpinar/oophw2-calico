@@ -3,4 +3,4 @@ project(calico)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(calico place_output_check.cpp)
+add_executable(calico print_operators.cpp)
