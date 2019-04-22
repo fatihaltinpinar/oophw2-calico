@@ -11,8 +11,8 @@
 
 
 int main() {
-    ArithmeticOperator plus(3,3,1,'+');
-    ArithmeticOperator minus(3, 8, 1, '-');
+    ArithmeticOperator *plus = new ArithmeticOperator(3,3,1,'+');
+    ArithmeticOperator *minus = new ArithmeticOperator(3, 8, 1, '-');
     ArithmeticOperator cross(8,3,1,'x');
     ArithmeticOperator division(8, 8, 1, '/');
 
@@ -23,8 +23,8 @@ int main() {
 
     OperatorGrid grid(10, 10);
 
-    grid.place_operator(&plus);
-    grid.place_operator(&minus);
+    grid.place_operator(plus);
+    grid.place_operator(minus);
     grid.place_operator(&cross);
     grid.place_operator(&division);
 
@@ -33,14 +33,16 @@ int main() {
     grid.place_operator(&bordercross);
     grid.place_operator(&borderdivision);
 
-    grid.place_operator(&plus);
-    grid.place_operator(&minus);
+    grid.place_operator(plus);
+    grid.place_operator(minus);
     grid.place_operator(&cross);
     grid.place_operator(&division);
 
     ArithmeticOperator conflict_n_border(3, 10, 1, '+');
     grid.place_operator(&conflict_n_border);
 
+    delete plus;
+    delete minus;
 
 /*
 SUCCESS: Operator + with size 1 is placed on (3,3).
