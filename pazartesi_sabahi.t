@@ -18,6 +18,11 @@
     run: rm -f print_operators;
     visible: false
 
+    
+- Remove Input Reliability:
+    run: rm -f input_reliability;
+    visible: false
+
 - Building Place Output Check:
     run: g++ -Wall -Werror place_output_check.cpp -o place_output_check  # timeout: 8
     blocker: true
@@ -36,6 +41,10 @@
 
 - Build Print Operators:
     run: g++ -Wall -Werror print_operators.cpp -o print_operators  # timeout: 8
+    blocker: true
+
+- Build Input Reliability:
+    run: g++ -Wall -Werror input_reliability.cpp -o input_reliability  # timeout: 8
     blocker: true
 
 
@@ -128,7 +137,7 @@
 
 - Print Operators:
     run: ./print_operators
-    points: 7
+    points: 6
     script:
         - expect: "[ \r\n]*SUCCESS: Operator - with size 1 is placed on [(]2,2[)].[ \r\n]*"  # timeout: 8
         - expect: "[ \r\n]*SUCCESS: Operator x with size 1 is placed on [(]3,22[)].[ \r\n]*"  # timeout: 8
@@ -137,5 +146,17 @@
         
         - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]4,23[]] chars.[ \r\n]*"         # timeout: 8
         - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]2[]] Operators.[ \r\n]*"         # timeout: 8
+        - expect: _EOF_                                                                        # timeout: 8
+    return: 0
+
+- Input Reliability:
+    run: ./input_reliability
+    points: 1
+    script:
+        - expect: "[ \r\n]*SUCCESS: Operator [+] with size 1 is placed on [(]3,3[)].[ \r\n]*"  # timeout: 8
+        - expect: "[ \r\n]*SUCCESS: [+] moved from [(]3,3[)] to [(]3,2[)].[ \r\n]*"              # timeout: 8
+        
+        - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]10,10[]] chars.[ \r\n]*"         # timeout: 8
+        - expect: "[ \r\n]*DESTRUCTOR: GIVE BACK[[]1[]] Operators.[ \r\n]*"         # timeout: 8
         - expect: _EOF_                                                                        # timeout: 8
     return: 0
