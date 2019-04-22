@@ -1,7 +1,7 @@
 ## Homework-2 Calico Test Dosyası
 
 ### Kullanım
-1. Bu [linke](https://fatihaltinpinar.github.io/itu_prerequisites/onsart/) tıkla. 
+1. Bu <a href="https://fatihaltinpinar.github.io/itu_prerequisites/onsart/" target="_blank">linke</a> tıkla.
 2. Eyw.
 3. Sağ üstteki indir tuşuna bas.
 4. İndirilmesini bekle.
